@@ -13,7 +13,7 @@ import java.util.List;
 //@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/todo-lists")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 //
 public class TitleController {
 
