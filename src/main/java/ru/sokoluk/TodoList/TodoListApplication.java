@@ -19,7 +19,7 @@ public class TodoListApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("https://spring-boot-todo-serv.herokuapp.com");
+				registry.addMapping("/**").allowedOrigins("http://localhost:4200");
 			}
 		};
 	}
