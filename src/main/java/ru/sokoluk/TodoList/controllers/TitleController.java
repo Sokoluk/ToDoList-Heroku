@@ -13,7 +13,7 @@ import java.util.List;
 //@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/todo-lists")
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class TitleController {
 
     private TitleService titleService;
@@ -23,7 +23,7 @@ public class TitleController {
         this.titleService = titleService;
     }
 
-    @GetMapping("")
+    @GetMapping()
     public ResponseEntity<List<Title>> showTitles() {
         System.out.println("2222");
         return new ResponseEntity<>(titleService.findAllTitles(), HttpStatus.OK);
