@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/todo-lists")
+@CrossOrigin(origins = "https://spring-boot-todo-serv.herokuapp.com")
 public class TitleController {
 
     private TitleService titleService;
