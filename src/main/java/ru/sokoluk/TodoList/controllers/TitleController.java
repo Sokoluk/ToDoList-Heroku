@@ -10,9 +10,10 @@ import ru.sokoluk.TodoList.services.TitleService;
 
 import java.util.List;
 
+//@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/todo-lists")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class TitleController {
 
     private TitleService titleService;
@@ -36,12 +37,14 @@ public class TitleController {
 
     @DeleteMapping("/{todolistId}")
     public ResponseEntity<Title> deleteTitle(@PathVariable("todolistId") int id) {
+        System.out.println("333");
         titleService.deleteTitle(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping("/{todolistId}")
+    @PatchMapping("/{todolistId}")
     public ResponseEntity<Title> changeTitle(@PathVariable("todolistId") int id, @RequestBody Title title) {
+        System.out.println("4444");
         return new ResponseEntity<>(titleService.renameTitle(id, title), HttpStatus.OK);
     }
 

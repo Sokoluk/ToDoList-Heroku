@@ -27,7 +27,7 @@ public class TodoListApplication {
 			return new WebMvcConfigurer() {
 				@Override
 				public void addCorsMappings(CorsRegistry registry) {
-					registry.addMapping("/**").allowedOrigins("*");
+					registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
 				}
 			};
 		}
@@ -85,4 +85,27 @@ public class TodoListApplication {
 //
 //		}
 //	}
+//	@Configuration
+//	@EnableWebMvc
+//	public class WebConfig implements WebMvcConfigurer {
+//
+//		@Override
+//		public void addCorsMappings(CorsRegistry registry) {
+//			registry.addMapping("/**");
+//		}
+//	}
+//	@Configuration
+//	public class WebConfig implements WebMvcConfigurer {
+//		@Override
+//		public void addCorsMappings(CorsRegistry registry) {
+//			registry.addMapping("/api/**")
+//					.allowedOrigins("*")
+//					.allowedMethods("*")
+//					.allowedHeaders("*")
+//					.allowCredentials(false)
+//					.maxAge(3600);
+//		}
+//	}
+
+
 }
