@@ -47,7 +47,7 @@ public class TodoListApplication {
 			HttpServletResponse response = (HttpServletResponse) res;
 			HttpServletRequest request = (HttpServletRequest) req;
 			System.out.println("WebConfig; " + request.getRequestURI());
-			response.setHeader("Access-Control-Allow-Origin", "https://frontportafolio.herokuapp.com");
+			response.setHeader("Access-Control-Allow-Origin", "https://spring-boot-todo-serv.herokuapp.com");
 			response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
 			response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,observe");
 			response.setHeader("Access-Control-Max-Age", "3600");
