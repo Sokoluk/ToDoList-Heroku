@@ -21,7 +21,7 @@ public class Title {
     private String title;
 
     @OneToMany(mappedBy = "title")
-    @JsonIgnore
+//    @JsonIgnore
     private List<Task> tasks;
 
     public Title() {
