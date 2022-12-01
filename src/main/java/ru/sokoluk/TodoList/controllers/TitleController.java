@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/todo-lists")
-//@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class TitleController {
 
     private TitleService titleService;
