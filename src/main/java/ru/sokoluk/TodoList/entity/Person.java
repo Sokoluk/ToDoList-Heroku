@@ -51,4 +51,12 @@ public class Person {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }

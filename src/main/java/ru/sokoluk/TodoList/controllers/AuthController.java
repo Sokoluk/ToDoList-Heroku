@@ -28,4 +28,10 @@ public class AuthController {
         else
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+
+    @PostMapping("/create")
+    public ResponseEntity<Person> createPerson(@RequestBody Person person){
+        return new ResponseEntity<>(authService.createPerson(person), HttpStatus.OK);
+    }
+
 }

@@ -24,4 +24,8 @@ public class AuthService {
     public boolean isValidPerson(Person checkedPerson) {
         return personRepository.findByEmailAndPassword(checkedPerson.getEmail(), checkedPerson.getPassword()) != null;
     }
+
+    public Person createPerson(Person person) {
+        return personRepository.save(person);
+    }
 }

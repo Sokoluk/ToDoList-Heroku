@@ -60,7 +60,7 @@ public class TitleController {
         return new ResponseEntity<>(titleService.newTask(id, task), HttpStatus.OK);
     }
 
-    @PutMapping("/{todolistId}/tasks/{taskId}")
+    @PatchMapping("/{todolistId}/tasks/{taskId}")
     public ResponseEntity<Title> changeTask(@PathVariable("todolistId") int titleId, @PathVariable("taskId") int taskId, @RequestBody Task task){
         System.out.println("11");
         return new ResponseEntity<>(titleService.renameTask(titleId,taskId,task), HttpStatus.OK);
