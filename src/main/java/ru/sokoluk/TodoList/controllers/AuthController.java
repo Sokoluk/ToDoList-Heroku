@@ -29,7 +29,7 @@ public class AuthController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/registration")
     public ResponseEntity<Person> createPerson(@RequestBody Person person){
         return new ResponseEntity<>(authService.createPerson(person), HttpStatus.OK);
     }
