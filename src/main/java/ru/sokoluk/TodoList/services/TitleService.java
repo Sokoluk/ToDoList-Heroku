@@ -57,14 +57,17 @@ public class TitleService {
     }
 
     @Transactional
-    public Title renameTask(int titleId, int taskId, Task updatedTask) {
+    public Task renameTask(int titleId, int taskId, Task updatedTask) {
         Title title = titlesRepository.getById(titleId);
+        Task task = new Task();
         for (Task it : title.getTasks()) {
             if (it.getId() == taskId) {
+                task = it;
                 it.setTask(updatedTask.getTask());
+                it.setActive(updatedTask.isActive());
             }
         }
-        return titlesRepository.save(title);
+        return tasksRepository.save(task);
     }
 
     @Transactional

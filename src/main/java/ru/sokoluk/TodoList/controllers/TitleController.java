@@ -61,7 +61,7 @@ public class TitleController {
     }
 
     @PatchMapping("/{todolistId}/tasks/{taskId}")
-    public ResponseEntity<Title> changeTask(@PathVariable("todolistId") int titleId, @PathVariable("taskId") int taskId, @RequestBody Task task){
+    public ResponseEntity<Task> changeTask(@PathVariable("todolistId") int titleId, @PathVariable("taskId") int taskId, @RequestBody Task task){
         System.out.println("11");
         return new ResponseEntity<>(titleService.renameTask(titleId,taskId,task), HttpStatus.OK);
     }
