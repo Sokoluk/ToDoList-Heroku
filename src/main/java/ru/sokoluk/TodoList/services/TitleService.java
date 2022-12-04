@@ -63,6 +63,7 @@ public class TitleService {
         for (Task it : title.getTasks()) {
             if (it.getId() == taskId) {
                 task = it;
+                if(updatedTask.getTask() != null)
                 it.setTask(updatedTask.getTask());
                 it.setActive(updatedTask.isActive());
             }
