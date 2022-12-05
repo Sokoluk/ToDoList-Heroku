@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -19,6 +21,7 @@ public class Title {
 
     @Column(name = "title")
     @NotEmpty(message = "Данное поле не может быть пустым")
+    @Size(max = 16, min = 1, message = "Недопустимая длина Title")
     private String title;
 
     @OneToMany(mappedBy = "title")

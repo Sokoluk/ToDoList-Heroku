@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +17,7 @@ public class Task {
     private int id;
 
     @Column(name = "task")
+    @Size(max = 25, min = 1,message = "Недопустимая длина Title")
     private String task;
 
     @ManyToOne //(fetch = FetchType.LAZY)
