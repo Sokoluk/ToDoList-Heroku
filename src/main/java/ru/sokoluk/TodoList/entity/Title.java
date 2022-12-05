@@ -22,6 +22,7 @@ public class Title {
     private String title;
 
     @OneToMany(mappedBy = "title")
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
 //    @JsonIgnore
     private List<Task> tasks;
 
