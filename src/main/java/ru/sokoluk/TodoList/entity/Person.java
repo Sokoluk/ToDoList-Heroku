@@ -10,20 +10,20 @@ import java.util.List;
 public class Person {
 
     @Id
-    @Column
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(name = "email")
 //    @NotEmpty(message = "Данное поле не может быть пустым")
     @Email
     private String email;
 
-    @Column
+    @Column(name = "password")
     @NotEmpty(message = "Данное поле не может быть пустым")
     private String password;
 
-    @Column
+    @Column(name = "active")
     private boolean active;
 
     @OneToMany(mappedBy = "person")
