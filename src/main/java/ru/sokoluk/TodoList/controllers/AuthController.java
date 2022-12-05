@@ -37,4 +37,5 @@ public class AuthController {
         return new ResponseEntity<>(authService.createPerson(person), HttpStatus.OK);
     }
 
+
 }
