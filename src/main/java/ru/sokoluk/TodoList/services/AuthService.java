@@ -22,13 +22,26 @@ public class AuthService {
         return personRepository.findByEmailAndPassword(searchPerson.getEmail(), searchPerson.getPassword());
     }
 
-
+    @Transactional
     public boolean isValidPerson(Person checkedPerson) {
-        return personRepository.findByEmailAndPassword(checkedPerson.getEmail(), checkedPerson.getPassword()) != null;
+        Person person = personRepository.findByEmailAndPassword(checkedPerson.getEmail(), checkedPerson.getPassword());
+        if (person != null) {
+            person.setActive(true);
+            return true;
+        }
+        return false;
     }
 
     @Transactional
     public Person createPerson(Person person) {
         return personRepository.save(person);
+    }
+
+    public Person getRememberedPerson() {
+        Person person = personRepository.findByActiveIsTrue();
+        if (person == null) {
+            person.setActive(false);
+        }
+        return person;
     }
 }

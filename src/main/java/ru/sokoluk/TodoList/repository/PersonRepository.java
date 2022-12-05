@@ -6,4 +6,6 @@ import ru.sokoluk.TodoList.entity.Person;
 public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     Person findByEmailAndPassword(String email, String password);
+
+    Person findByActiveIsTrue();
 }

@@ -3,6 +3,7 @@ package ru.sokoluk.TodoList.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 @Table(name = "Person")
@@ -24,6 +25,9 @@ public class Person {
 
     @Column
     private boolean active;
+
+    @OneToMany(mappedBy = "person")
+    private List<Title> titles;
 
     public Person() {
     }
@@ -58,5 +62,13 @@ public class Person {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public List<Title> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(List<Title> titles) {
+        this.titles = titles;
     }
 }

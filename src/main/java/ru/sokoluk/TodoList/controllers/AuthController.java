@@ -19,8 +19,10 @@ public class AuthController {
         this.authService = authService;
     }
 
-    //    @GetMapping("/me")
-//    public
+    @GetMapping("/me")
+    public ResponseEntity<Person> remember() {
+        return new ResponseEntity<>( authService.getRememberedPerson(), HttpStatus.OK);
+    }
 
     @PostMapping("/login")
     public ResponseEntity<Person> authentication(@RequestBody Person person) {
@@ -31,7 +33,7 @@ public class AuthController {
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<Person> createPerson(@RequestBody Person person){
+    public ResponseEntity<Person> createPerson(@RequestBody Person person) {
         return new ResponseEntity<>(authService.createPerson(person), HttpStatus.OK);
     }
 

@@ -1,5 +1,6 @@
 package ru.sokoluk.TodoList.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
@@ -23,6 +24,11 @@ public class Title {
     @OneToMany(mappedBy = "title")
 //    @JsonIgnore
     private List<Task> tasks;
+
+    @ManyToOne //(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id",referencedColumnName = "id")
+    @JsonBackReference
+    private Person person;
 
     public Title() {
     }
@@ -53,5 +59,13 @@ public class Title {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }
