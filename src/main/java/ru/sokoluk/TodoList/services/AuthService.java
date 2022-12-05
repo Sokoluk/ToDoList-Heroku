@@ -37,11 +37,19 @@ public class AuthService {
         return personRepository.save(person);
     }
 
+    @Transactional
     public Person getRememberedPerson() {
         Person person = personRepository.findByActiveIsTrue();
         if (person == null) {
             person.setActive(false);
         }
         return person;
+    }
+
+    @Transactional
+    public Person logout(Person person) {
+        Person upPerson = personRepository.getById(person.getId());
+        upPerson.setActive(false);
+        return personRepository.save(upPerson);
     }
 }

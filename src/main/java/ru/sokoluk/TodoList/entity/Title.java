@@ -25,10 +25,10 @@ public class Title {
 //    @JsonIgnore
     private List<Task> tasks;
 
-    @ManyToOne //(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id",referencedColumnName = "id")
-    @JsonBackReference
-    private Person person;
+//    @ManyToOne //(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "person_id",referencedColumnName = "id")
+//    @JsonBackReference
+//    private Person person;
 
     public Title() {
     }
@@ -61,11 +61,4 @@ public class Title {
         this.tasks = tasks;
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 }

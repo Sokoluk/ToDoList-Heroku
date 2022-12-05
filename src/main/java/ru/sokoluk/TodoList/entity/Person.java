@@ -26,8 +26,8 @@ public class Person {
     @Column(name = "active")
     private boolean active;
 
-    @OneToMany(mappedBy = "person")
-    private List<Title> titles;
+//    @OneToMany(mappedBy = "person")
+//    private List<Title> titles;
 
     public Person() {
     }
@@ -64,11 +64,4 @@ public class Person {
         this.active = active;
     }
 
-    public List<Title> getTitles() {
-        return titles;
-    }
-
-    public void setTitles(List<Title> titles) {
-        this.titles = titles;
-    }
 }
