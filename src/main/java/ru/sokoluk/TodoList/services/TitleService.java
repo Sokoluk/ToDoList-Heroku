@@ -48,7 +48,7 @@ public class TitleService {
     }
 
     public List<Task> findAllTasks(int id) {
-        return titlesRepository.getById(id).getTasks();
+        return titlesRepository.getById(id).getTasks().stream().sorted(Comparator.comparing(Task::getId).reversed()).collect(Collectors.toList());
     }
 
     @Transactional
