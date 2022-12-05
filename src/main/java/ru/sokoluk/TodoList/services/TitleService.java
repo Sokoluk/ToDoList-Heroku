@@ -8,7 +8,8 @@ import ru.sokoluk.TodoList.entity.Title;
 import ru.sokoluk.TodoList.repository.TasksRepository;
 import ru.sokoluk.TodoList.repository.TitlesRepository;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -26,7 +27,7 @@ public class TitleService {
 
 
     public List<Title> findAllTitles() {
-        return titlesRepository.findAll();
+        return titlesRepository.findAll().stream().sorted(Comparator.comparing(Title::getId).reversed()).collect(Collectors.toList());
     }
 
     @Transactional
