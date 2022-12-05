@@ -9,6 +9,7 @@ import ru.sokoluk.TodoList.services.AuthService;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin("*")
 public class AuthController {
 
     private AuthService authService;
