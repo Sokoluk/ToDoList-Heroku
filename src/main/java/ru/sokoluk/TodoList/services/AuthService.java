@@ -41,7 +41,8 @@ public class AuthService {
     public Person getRememberedPerson() {
         Person person = personRepository.findByActiveIsTrue();
         if (person == null) {
-            person.setActive(false);
+            Person newPerson = new Person();
+            newPerson.setActive(false);
         }
         return person;
     }

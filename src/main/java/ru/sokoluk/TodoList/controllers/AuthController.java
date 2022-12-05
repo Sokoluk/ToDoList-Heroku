@@ -21,6 +21,7 @@ public class AuthController {
 
     @GetMapping("/me")
     public ResponseEntity<Person> remember() {
+        System.out.println("1111");
         return new ResponseEntity<>( authService.getRememberedPerson(), HttpStatus.OK);
     }
 

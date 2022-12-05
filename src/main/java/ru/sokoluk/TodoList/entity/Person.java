@@ -16,11 +16,11 @@ public class Person {
 
     @Column(name = "email")
 //    @NotEmpty(message = "Данное поле не может быть пустым")
-    @Email
+//    @Email
     private String email;
 
     @Column(name = "password")
-    @NotEmpty(message = "Данное поле не может быть пустым")
+//    @NotEmpty(message = "Данное поле не может быть пустым")
     private String password;
 
     @Column(name = "active")
