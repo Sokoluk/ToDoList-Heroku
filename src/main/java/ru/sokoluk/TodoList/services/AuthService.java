@@ -43,7 +43,9 @@ public class AuthService {
         if (person == null) {
             Person newPerson = new Person();
             newPerson.setActive(false);
+            return newPerson;
         }
+        else
         return person;
     }
 
