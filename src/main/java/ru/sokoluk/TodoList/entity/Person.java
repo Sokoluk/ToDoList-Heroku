@@ -26,6 +26,10 @@ public class Person {
     @Column(name = "active")
     private boolean active;
 
+    @Column(name = "role")
+    private String role;
+
+
 //    @OneToMany(mappedBy = "person")
 //    private List<Title> titles;
 
@@ -64,4 +68,11 @@ public class Person {
         this.active = active;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
