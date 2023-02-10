@@ -10,6 +10,8 @@ import ru.sokoluk.TodoList.services.TitleService;
 
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.OK;
+
 //@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/todo-lists")
@@ -44,9 +46,10 @@ public class TitleController {
     }
 
     @PatchMapping("/{todolistId}")
-    public ResponseEntity<Title> changeTitle(@PathVariable("todolistId") int id, @RequestBody Title title) {
+    public ResponseEntity<Title> changeTitle(@PathVariable int todolistId,
+                                             @RequestBody Title title) {
         System.out.println("4444");
-        return new ResponseEntity<>(titleService.renameTitle(id, title), HttpStatus.OK);
+        return new ResponseEntity<>(titleService.renameTitle(todolistId, title), HttpStatus.OK);
     }
 
     @GetMapping("/{todolistId}/tasks")
@@ -63,12 +66,12 @@ public class TitleController {
     @PatchMapping("/{todolistId}/tasks/{taskId}")
     public ResponseEntity<Task> changeTask(@PathVariable("todolistId") int titleId, @PathVariable("taskId") int taskId, @RequestBody Task task){
         System.out.println("11");
-        return new ResponseEntity<>(titleService.renameTask(titleId,taskId,task), HttpStatus.OK);
+        return new ResponseEntity<>(titleService.renameTask(titleId,taskId,task), OK);
     }
 
     @DeleteMapping("/{todolistId}/tasks/{taskId}")
     public ResponseEntity<Task> deleteTask(@PathVariable("taskId") int taskId) {
         titleService.deleteTask(taskId);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(OK);
     }
 }
